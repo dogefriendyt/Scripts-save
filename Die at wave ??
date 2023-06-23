@@ -1,0 +1,24 @@
+--[
+
+THIS SCRIPT ONLY SUPPORTS ZOMBIE RUSH.
+
+]
+
+
+
+
+
+--Add "breaking" before loop to stop the resetting.
+
+--Customize the number to whatever wave you want to die at.
+
+local Player = game:GetService('Players').LocalPlayer
+local currentWave = game:GetService('ReplicatedStorage').GameProperties.CurrentWave
+
+while task.wait() do
+    if Player.Character and currentWave.Value >= 65 and Player.Character:FindFirstChild('Alive') then
+        Player.Character:BreakJoints()
+        print('killed self, loop')
+        break
+    end
+end
